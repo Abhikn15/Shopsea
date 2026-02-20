@@ -526,6 +526,108 @@
     line-height: 1.2;
   }
 
+  /* ── ANDAMAN & NICOBAR SECTION ── */
+  .andaman {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+  }
+
+  .andaman-visual {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .andaman-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(0.78);
+    transition: transform 0.9s ease, filter 0.6s ease;
+  }
+
+  .andaman-visual:hover img {
+    transform: scale(1.04);
+    filter: saturate(1);
+  }
+
+  .andaman-visual-label {
+    position: absolute;
+    bottom: 28px;
+    left: 28px;
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(245,240,234,0.5);
+  }
+
+  .andaman-text {
+    background: var(--ink);
+    padding: 90px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .andaman-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.2vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--pearl);
+    margin-bottom: 28px;
+  }
+
+  .andaman-heading em {
+    font-style: italic;
+    color: var(--sand);
+  }
+
+  .andaman-para {
+    font-weight: 300;
+    font-size: 0.88rem;
+    line-height: 2;
+    color: rgba(181,160,140,0.72);
+    margin-bottom: 18px;
+  }
+
+  .andaman-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--coral);
+    margin: 36px 0;
+    opacity: 0.55;
+  }
+
+  .andaman-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 44px;
+  }
+
+  .andaman-fact-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--coral);
+    opacity: 0.72;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .andaman-fact-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 200;
+    font-size: 0.64rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(181,160,140,0.45);
+    line-height: 1.6;
+  }
+
   /* CONTACT SECTION */
   .contact {
     background: var(--sand);
@@ -705,6 +807,69 @@
   .reveal-delay-2 { transition-delay: 0.3s; }
   .reveal-delay-3 { transition-delay: 0.45s; }
 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .about { grid-template-columns: 1fr; }
+    .about-img { height: 55vw; }
+    .about-text { padding: 60px 40px; }
+
+    .collections {
+      grid-template-columns: 1fr;
+      padding: 60px 40px;
+    }
+    .collection-divider { display: none; }
+    .collection-item {
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(122,154,170,0.12);
+    }
+    .collection-item:last-child { border-bottom: none; }
+
+    .feature-row { grid-template-columns: 1fr; height: auto; }
+    .feature-panel { height: 55vw; }
+
+    .andaman { grid-template-columns: 1fr; min-height: auto; }
+    .andaman-visual { height: 55vw; min-height: 260px; }
+    .andaman-text { padding: 70px 50px; }
+
+    .contact { grid-template-columns: 1fr; }
+    .contact-visual { height: 52vw; }
+    .contact-form-wrap { padding: 60px 40px; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 22px 24px; }
+    .hero-content { padding: 0 24px 60px; }
+    .hero-line { display: none; }
+
+    .about-text { padding: 50px 24px; }
+
+    .products { padding: 60px 24px; }
+    .products-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .product-card:first-child { grid-row: span 1; aspect-ratio: 3/4; }
+
+    .collections { padding: 50px 24px; }
+
+    .andaman-text { padding: 50px 24px; }
+    .andaman-facts { gap: 22px 28px; }
+
+    .contact-form-wrap { padding: 50px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-full { grid-column: span 1; }
+    .form-submit { width: 100%; text-align: center; }
+
+    footer {
+      padding: 40px 24px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -718,6 +883,7 @@
   <a href="#" class="nav-logo">ShopSea</a>
   <ul class="nav-links">
     <li><a href="#products">Our Products</a></li>
+    <li><a href="#andaman">Andaman</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -776,14 +942,14 @@
   </div>
   <div class="products-grid">
     <div class="product-card reveal">
-      <img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=800&q=80" alt="Tribal jewellery">
+      <img src="7.png" alt="Tribal Handcraft">
       <div class="product-overlay">
         <span class="product-cat">Tribal Heritage</span>
         <p class="product-name">Tribal Jewellery</p>
       </div>
     </div>
     <div class="product-card reveal reveal-delay-1">
-      <img src="https://images.unsplash.com/photo-1641638791149-2d2c0f64e3a2?w=700&q=80" alt="Sea shell jewellery">
+      <img src="seashell_cd43b2fd-2fc5-41d8-a742-0cea34210494.jpg" alt="Sea shell jewellery">
       <div class="product-overlay">
         <span class="product-cat">Ocean Finds</span>
         <p class="product-name">Shell Jewellery</p>
@@ -797,7 +963,7 @@
       </div>
     </div>
     <div class="product-card reveal reveal-delay-3">
-      <img src="https://images.unsplash.com/photo-1545127398-14699f92334b?w=700&q=80" alt="Decorative items">
+      <img src="5.jpg" alt="Decorative items">
       <div class="product-overlay">
         <span class="product-cat">Home Decor</span>
         <p class="product-name">Decorative Items</p>
@@ -830,21 +996,21 @@
 <!-- FEATURE ROW -->
 <div class="feature-row">
   <div class="feature-panel">
-    <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?w=800&q=80" alt="Beach at sunset">
+    <img src="9.jpg" alt="Beach at sunset">
     <div class="feature-caption">
       <span>Origins</span>
       <p>From shore to skin</p>
     </div>
   </div>
   <div class="feature-panel">
-    <img src="https://images.unsplash.com/photo-1504309092620-4d0ec726efa4?w=800&q=80" alt="Sea shells on sand">
+    <img src="8.png" alt="Sea shells on sand">
     <div class="feature-caption">
       <span>Materials</span>
       <p>Nature's own palette</p>
     </div>
   </div>
   <div class="feature-panel">
-    <img src="https://images.unsplash.com/photo-1573408301185-9519f94815b9?w=800&q=80" alt="Handcraft process">
+    <img src="10.png" alt="Handcraft process">
     <div class="feature-caption">
       <span>Making</span>
       <p>Patience in every piece</p>
@@ -852,10 +1018,43 @@
   </div>
 </div>
 
+<!-- ANDAMAN & NICOBAR -->
+<section class="andaman" id="andaman">
+  <div class="andaman-visual">
+    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=900&q=80" alt="Andaman Islands coastline">
+    <span class="andaman-visual-label">Andaman Sea · Bay of Bengal</span>
+  </div>
+  <div class="andaman-text">
+    <span class="section-label" style="color:var(--coral)">Where We Come From</span>
+    <h2 class="andaman-heading reveal">The Andaman<br>&amp; <em>Nicobar</em><br>Islands</h2>
+    <p class="andaman-para reveal">Scattered across the Bay of Bengal, the Andaman and Nicobar Islands are among India's most remote and extraordinary places — 572 islands of dense rainforest, white sand, and water of an impossible blue. It is here that ShopSea is rooted.</p>
+    <p class="andaman-para reveal reveal-delay-1">The islands carry a tradition of craft inseparable from the sea. Local artisans — many from fishing communities along the coast — gather shells, driftwood, and natural materials from these shores and shape them into pieces of enduring beauty. Each ShopSea creation carries that provenance: the specific light, tide, and hand of this archipelago.</p>
+    <div class="andaman-rule reveal reveal-delay-2"></div>
+    <div class="andaman-facts reveal reveal-delay-2">
+      <div>
+        <div class="andaman-fact-num">572</div>
+        <div class="andaman-fact-label">Islands in the archipelago</div>
+      </div>
+      <div>
+        <div class="andaman-fact-num">100%</div>
+        <div class="andaman-fact-label">Handcrafted by local artisans</div>
+      </div>
+      <div>
+        <div class="andaman-fact-num">300+</div>
+        <div class="andaman-fact-label">Years of island craft tradition</div>
+      </div>
+      <div>
+        <div class="andaman-fact-num">1</div>
+        <div class="andaman-fact-label">Source — the Andaman coast</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-visual">
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&q=80" alt="Ocean shore">
+    <img src="2.jpg" alt="Ocean shore">
     <div class="contact-visual-overlay"></div>
   </div>
   <div class="contact-form-wrap">
